@@ -1,13 +1,11 @@
 import Banner from './components/Banner/banner';
-import TextBox from './components/TextBox';
+import MainForm from './components/MainForm';
 
 function App() {
   return (
     <div className="App">
       <Banner />
-      <TextBox label="Nome" placeholder="Digite seu nome" />
-      <TextBox label="Cargo" placeholder="Digite seu cargo" />
-      <TextBox label="Imagem" placeholder="Informe o endereço da imagem" />
+      <MainForm /> 
     </div>
   );
 }
