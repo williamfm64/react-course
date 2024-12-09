@@ -4,7 +4,7 @@ function Dropdown (props){
     return(
         <div className='dropdown-box'>
             <label>{props.label}</label>
-            <select>
+            <select required={props.mustHave}>
                 {props.itens.map(item => {
                     return <option key={item}>{item}</option>
                 })}
