@@ -5,13 +5,6 @@ import ButtonSubmit from '../ButtonSubmit'
 import { useState } from 'react'
 
 const MainForm = (props) =>{
-    const times = [
-        'Programação',
-        'Front-end',
-        'Back-end',
-        'Design',
-        'DevOps'
-    ]
 
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
@@ -58,7 +51,7 @@ const MainForm = (props) =>{
 
                 <Dropdown 
                     label="Time" 
-                    itens={times} 
+                    itens={props.teamsList.map(times => times.nome)} 
                     mustHave={true}
                     valueOnChange={p => setTime(p)}
                     value={time}
