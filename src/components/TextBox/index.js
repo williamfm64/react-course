@@ -1,19 +1,17 @@
-import { useState } from "react";
 import "./textbox.css"
 
 const TextBox = (props) => {
-    const [value, setValue] = useState('');
 
     const valueSetter = (e) =>{
-        setValue(e.target.value)
-        console.log(value);
+        props.valueOnChange(e.target.value)
     }
 
     return (
         <div className="text-box">
              <label>{props.label}</label>
              <input 
-                type="text" 
+                type="text"
+                value={props.value}
                 placeholder={props.placeholder} 
                 required={props.mustHave}
                 onChange={valueSetter}
