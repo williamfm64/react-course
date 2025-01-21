@@ -50,18 +50,27 @@ function App() {
     }
   ]
 
-  const [partner, setPartner] = useState([])
+  const [coworkers, setcoworkers] = useState([])
 
-  const setPartnerTest = (e) =>{
+  const setCoworkerTest = (e) =>{
     console.log(e)
-    setPartner([...partner, e])
+    setcoworkers([...coworkers, e])
   }
 
   return (
     <div className="App">
       <Banner />
-      <MainForm onPartnerSubmit={partner => setPartnerTest(partner)} teamsList={teams}/>
-      {teams.map(time => <Team key={time.nome} nome={time.nome} colorBack={time.colorBack} colorFront={time.colorFront}/>)}
+      
+      <MainForm onCoworkerSubmit={coworker => setCoworkerTest(coworker)} teamsList={teams}/>
+
+      {teams.map(time => <Team
+        key={time.nome} 
+        nome={time.nome} 
+        colorBack={time.colorBack} 
+        colorFront={time.colorFront}
+        coworkers={coworkers.filter(coworker => coworker.time === time.nome)}
+      />)}
+
     </div>
   );
 }

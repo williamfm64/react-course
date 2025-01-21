@@ -14,7 +14,7 @@ const MainForm = (props) =>{
     const sendForm = (e) =>{
         e.preventDefault()
         console.log('o Formulário foi submetido')
-        props.onPartnerSubmit({
+        props.onCoworkerSubmit({
             nome,
             cargo,
             imagem,
