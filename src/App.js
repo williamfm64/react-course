@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Banner from './components/Banner/banner';
 import MainForm from './components/MainForm';
 import Team from './components/Team';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -70,6 +71,8 @@ function App() {
         colorFront={time.colorFront}
         coworkers={coworkers.filter(coworker => coworker.time === time.nome)}
       />)}
+
+      <Footer/>
 
     </div>
   );

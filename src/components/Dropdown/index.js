@@ -10,6 +10,7 @@ function Dropdown (props){
 
             <label>{props.label}</label>
             <select required={props.mustHave} value={props.value} onChange={valueSetter}>
+                <option value=""/>
                 {props.itens.map(item => {
                     return <option key={item}>{item}</option>
                 })}
