@@ -1,7 +1,7 @@
 import './buttonSubmit.css'
 
-function ButtonSubmit (props){
-    return(
+function ButtonSubmit(props) {
+    return (
         <div className='button-submit'>
             <button>{props.children}</button>
         </div>

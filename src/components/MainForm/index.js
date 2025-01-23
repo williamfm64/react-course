@@ -4,62 +4,61 @@ import Dropdown from '../Dropdown'
 import ButtonSubmit from '../ButtonSubmit'
 import { useState } from 'react'
 
-const MainForm = (props) =>{
+const MainForm = (props) => {
 
-    const [nome, setNome] = useState('')
-    const [cargo, setCargo] = useState('')
-    const [imagem, setImagem] = useState('')
-    const [time, setTime] = useState('')
+    const [name, setName] = useState('')
+    const [position, setPosition] = useState('')
+    const [image, setImage] = useState('')
+    const [team, setTeam] = useState('')
 
-    const sendForm = (e) =>{
+    const sendForm = (e) => {
         e.preventDefault()
-        console.log('o Formulário foi submetido')
         props.onCoworkerSubmit({
-            nome,
-            cargo,
-            imagem,
-            time
+            name,
+            position,
+            image,
+            team
         })
 
-        setNome('')
-        setCargo('')
-        setImagem('')
-        setTime('')
+        setName('')
+        setPosition('')
+        setImage('')
+        setTeam('')
     }
 
     return (
         <section className='form-section'>
             <form className='form-box' onSubmit={sendForm}>
                 <h2>Preencha os dados para criar o card do colaborador.</h2>
-                <TextBox 
-                    label="Nome" 
-                    placeholder="Digite seu nome" 
-                    mustHave={true}
-                    valueOnChange={p => setNome(p)}
-                    value={nome}
+                <TextBox
+                    label="Nome"
+                    placeholder="Digite seu nome"
+                    required={true}
+                    valueOnChange={p => setName(p)}
+                    value={name}
                 />
 
-                <TextBox 
-                    label="Cargo" 
-                    placeholder="Digite seu cargo" 
-                    mustHave={true}
-                    valueOnChange={p => setCargo(p)}
-                    value={cargo}
+                <TextBox
+                    label="Cargo"
+                    placeholder="Digite seu cargo"
+                    required={true}
+                    valueOnChange={p => setPosition(p)}
+                    value={position}
                 />
 
-                <TextBox 
-                    label="Imagem" 
-                    placeholder="Informe o endereço da imagem" 
-                    valueOnChange={p => setImagem(p)}
-                    value={imagem}
+                <TextBox
+                    label="Imagem"
+                    placeholder="Informe o endereço da imagem"
+                    valueOnChange={p => setImage(p)}
+                    value={image}
                 />
 
-                <Dropdown 
-                    label="Time" 
-                    itens={props.teamsList.map(times => times.nome)} 
-                    mustHave={true}
-                    valueOnChange={p => setTime(p)}
-                    value={time}
+                <Dropdown
+                    label="Time"
+                    items={props.teamsList.map(teams => teams.name)}
+                    required={true}
+                    valueOnChange={p => setTeam(p)}
+                    value={team}
                 />
 
                 <ButtonSubmit>

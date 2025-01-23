@@ -1,4 +1,4 @@
-.footer-content{
+.footer-content {
     background-color: #6278F7;
     display: flex;
     justify-content: space-evenly;
@@ -6,11 +6,16 @@
     padding: 32px 0;
 }
 
-.footer-content .social-media img{
-    margin: 0 20px;
+.footer-content .social-media img {
+    margin: 12px 20px;
+    width: 12%;
 }
 
-.footer-content .credits h5{
+.footer-content .credits h5 {
     color: #F2F2F2;
     font-size: 12pt;
+}
+
+.footer-content .logo img {
+    width: 80%;
 }
