@@ -28,6 +28,7 @@
     font-size: 18px;
     line-height: 22px;
     font-weight: bold;
+    margin-top: 32px;
 }
 
 .coworker .footer h5 {
@@ -35,5 +36,5 @@
     font-weight: 400;
     line-height: 22px;
     color: #212121;
-    margin-top: -16px;
+    margin: 12px 0;
 }
