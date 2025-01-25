@@ -56,18 +56,17 @@ function Home() {
   const [coworkers, setCoworkers] = useState([])
 
   const addCoworker = (e) => {
-    console.log(e)
     setCoworkers([...coworkers, e])
-  }
-
-  async function updateCoworkers() {
-    const serverData = await api.get('/coworkers')
-    serverData.data.map(newCoworker => setCoworkers([...coworkers, newCoworker]))
   }
 
   useEffect(() => {
     updateCoworkers()
   }, [])
+
+  async function updateCoworkers() {
+    const serverData = await api.get('/coworkers')
+    setCoworkers(serverData.data)
+  }
 
   return (
     <div className="App">
