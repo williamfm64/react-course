@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Banner from '../components/Banner/banner'
 import MainForm from '../components/MainForm'
 import Team from '../components/Team'
 import Footer from '../components/Footer'
 import './style.css'
+import api from '../services/api'
 
 function Home() {
 
@@ -58,6 +59,15 @@ function Home() {
     console.log(e)
     setCoworkers([...coworkers, e])
   }
+
+  async function updateCoworkers() {
+    const serverData = await api.get('/coworkers')
+    serverData.data.map(newCoworker => setCoworkers([...coworkers, newCoworker]))
+  }
+
+  useEffect(() => {
+    updateCoworkers()
+  }, [])
 
   return (
     <div className="App">

@@ -11,3 +11,7 @@
     border-radius: 20px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.08);
 }
+
+.form-box h2 {
+    font-weight: 600;
+}
