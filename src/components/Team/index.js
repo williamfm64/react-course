@@ -8,7 +8,7 @@ const Team = (props) => {
             <h3 style={{ borderColor: props.colorFront }}> {props.name} </h3>
             <div className='coworkers'>
                 {props.coworkers.map(coworker => <Coworker
-                    key={coworker.name}
+                    key={coworker.id}
                     name={coworker.name}
                     position={coworker.position}
                     image={coworker.image}

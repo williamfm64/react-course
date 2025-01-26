@@ -55,8 +55,14 @@ function Home() {
 
   const [coworkers, setCoworkers] = useState([])
 
-  const addCoworker = (e) => {
-    setCoworkers([...coworkers, e])
+  async function addCoworker(e) {
+    await api.post('/coworkers', {
+      name: e.name,
+      position: e.position,
+      image: e.image,
+      team: e.team
+    })
+    updateCoworkers()
   }
 
   useEffect(() => {
@@ -70,9 +76,6 @@ function Home() {
 
   return (
     <div className="App">
-      <style>
-        @import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-      </style>
       <Banner />
 
       <MainForm onCoworkerSubmit={thisCoworker => addCoworker(thisCoworker)} teamsList={teams} />
