@@ -77,8 +77,9 @@ function Home() {
     setCoworkers(serverData.data)
   }
 
-  const deleteCoworker = (e) => {
-    console.log('Deletando ' + e)
+  async function deleteCoworker(e) {
+    await api.delete(`/coworkers/${e}`)
+    updateCoworkers()
   }
 
   const updateCoworker = (e) => {
