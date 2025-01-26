@@ -24,11 +24,15 @@
 }
 
 .coworker .footer h4 {
+    line-height: 22px;
+    margin-top: 32px;
+}
+
+.coworker .footer a {
     color: #6278F7;
     font-size: 18px;
-    line-height: 22px;
     font-weight: bold;
-    margin-top: 32px;
+    cursor: pointer;
 }
 
 .coworker .footer h5 {

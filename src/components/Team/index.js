@@ -9,6 +9,7 @@ const Team = (props) => {
             <div className='coworkers'>
                 {props.coworkers.map(coworker => <Coworker
                     key={coworker.id}
+                    id={coworker.id}
                     name={coworker.name}
                     position={coworker.position}
                     image={coworker.image}
