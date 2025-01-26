@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
+import React from 'react'
 import Banner from '../components/Banner/banner'
 import MainForm from '../components/MainForm'
 import Team from '../components/Team'
 import Footer from '../components/Footer'
 import './style.css'
 import api from '../services/api'
+
+export const AppState = React.createContext()
 
 function Home() {
 
@@ -74,23 +77,33 @@ function Home() {
     setCoworkers(serverData.data)
   }
 
+  const deleteCoworker = (e) => {
+    console.log('Deletando ' + e)
+  }
+
+  const updateCoworker = (e) => {
+    console.log('Update ' + e)
+  }
+
   return (
-    <div className="App">
-      <Banner />
+    <AppState.Provider value={{ deleteCoworker, updateCoworker }}>
+      <div className="App">
+        <Banner />
 
-      <MainForm onCoworkerSubmit={thisCoworker => addCoworker(thisCoworker)} teamsList={teams} />
+        <MainForm onCoworkerSubmit={thisCoworker => addCoworker(thisCoworker)} teamsList={teams} />
 
-      {teams.map(team => <Team
-        key={team.name}
-        name={team.name}
-        colorBack={team.colorBack}
-        colorFront={team.colorFront}
-        coworkers={coworkers.filter(coworker => coworker.team === team.name)}
-      />)}
+        {teams.map(team => <Team
+          key={team.name}
+          name={team.name}
+          colorBack={team.colorBack}
+          colorFront={team.colorFront}
+          coworkers={coworkers.filter(coworker => coworker.team === team.name)}
+        />)}
 
-      <Footer />
+        <Footer />
 
-    </div>
+      </div>
+    </AppState.Provider>
   );
 }
 

@@ -1,0 +1,14 @@
+.tool {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 68px;
+    right: 10px;
+}
+
+.tool img {
+    width: 20px;
+    margin-bottom: 15px;
+    border-radius: 0px;
+    cursor: pointer;
+}

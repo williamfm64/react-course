@@ -12,6 +12,7 @@
     width: 140px;
     border-radius: 50%;
     position: relative;
+    z-index: 1;
     bottom: -40px;
 }
 
@@ -21,14 +22,12 @@
     border-radius: 0px 0px 10px 10px;
     padding-top: 72px;
     padding-bottom: 8px;
+    position: relative;
 }
 
 .coworker .footer h4 {
     line-height: 22px;
     margin-top: 32px;
-}
-
-.coworker .footer a {
     color: #6278F7;
     font-size: 18px;
     font-weight: bold;

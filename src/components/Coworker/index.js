@@ -4,10 +4,10 @@ import Tool from '../Tool'
 
 function Coworker({ id, name, position, image, color }) {
 
-    const [edit, setEdit] = useState(0)
+    const [visible, setVisible] = useState(false)
 
-    const updateCoworker = () => {
-        edit === 0 ? setEdit(1) : setEdit(0)
+    const coworkerTools = () => {
+        visible === false ? setVisible(true) : setVisible(false)
     }
 
     return (
@@ -16,8 +16,8 @@ function Coworker({ id, name, position, image, color }) {
                 <img src={image} alt={name} />
             </div>
             <div className="footer">
-                <h4><a onClick={updateCoworker}>{name}</a></h4>
-                <Tool visible={edit} />
+                <h4 onClick={coworkerTools}>{name}</h4>
+                <Tool visible={visible} id={id} />
                 <h5>{position}</h5>
             </div>
         </div>
