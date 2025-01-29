@@ -58,6 +58,9 @@ function Home() {
 
   const [coworkers, setCoworkers] = useState([])
 
+  let editFlag = false;
+  let coworkerToEdit = [];
+
   async function addCoworker(e) {
     await api.post('/coworkers', {
       name: e.name,
@@ -82,16 +85,17 @@ function Home() {
     updateCoworkers()
   }
 
-  const updateCoworker = (e) => {
-    console.log('Update ' + e)
-  }
-
   return (
-    <AppState.Provider value={{ deleteCoworker, updateCoworker }}>
+    <AppState.Provider value={{ deleteCoworker }}>
       <div className="App">
         <Banner />
 
-        <MainForm onCoworkerSubmit={thisCoworker => addCoworker(thisCoworker)} teamsList={teams} />
+        <MainForm
+          onCoworkerSubmit={thisCoworker => addCoworker(thisCoworker)}
+          teamsList={teams}
+          editFlag={editFlag}
+          coworkerToEdit={coworkerToEdit}
+        />
 
         {teams.map(team => <Team
           key={team.name}

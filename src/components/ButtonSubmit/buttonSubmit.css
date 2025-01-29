@@ -7,6 +7,7 @@
     border: none;
     font-weight: bold;
     font-size: 14pt;
+    cursor: pointer;
 }
 
 .button-submit button:hover {

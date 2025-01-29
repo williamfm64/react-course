@@ -34,6 +34,10 @@
     cursor: pointer;
 }
 
+.coworker .footer h4:hover {
+    text-decoration: underline;
+}
+
 .coworker .footer h5 {
     font-size: 18px;
     font-weight: 400;
