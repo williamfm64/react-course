@@ -1,4 +1,5 @@
 import './tool.css'
+import { SlClose } from "react-icons/sl";
 import { useContext } from 'react'
 import { AppState } from '../../pages/Home'
 
@@ -11,7 +12,7 @@ function Tool({ visible, id }) {
     return (
         visible ?
             <div className="tool">
-                <img onClick={() => deleteCoworker(id)} src="/images/trash.png" alt="delete"></img>
+                <SlClose onClick={() => deleteCoworker(id)} />
             </div>
             : null
     )

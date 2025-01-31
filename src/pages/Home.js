@@ -11,50 +11,43 @@ export const AppState = React.createContext()
 
 function Home() {
 
-  const teams = [
+  const [teams, setTeams] = useState([
     {
       name: "Programação",
-      colorFront: "#57C278",
-      colorBack: "#D9F7E9"
+      color: "#57C278",
 
     },
     {
       name: "Front-end",
-      colorFront: "#82CFFA",
-      colorBack: "#E8F8FF"
+      color: "#82CFFA",
 
     },
     {
       name: "Data Science",
-      colorFront: "#A6D157",
-      colorBack: "#F0F8E2"
+      color: "#A6D157",
 
     },
     {
       name: "DevOps",
-      colorFront: "#E03B69",
-      colorBack: "#FDE7E8"
+      color: "#E03B69",
 
     },
     {
       name: "Ux e Design",
-      colorFront: "#DB6EBF",
-      colorBack: "#FAE9F5"
+      color: "#DB6EBF",
 
     },
     {
       name: "Mobile",
-      colorFront: "#FFBA05",
-      colorBack: "#FFF5D9"
+      color: "#FFBA05",
 
     },
     {
       name: "Inovação e Gestão",
-      colorFront: "#FF8A29",
-      colorBack: "#FFEEDF"
+      color: "#FF8A29",
 
     }
-  ]
+  ])
 
   const [coworkers, setCoworkers] = useState([])
 
@@ -85,6 +78,16 @@ function Home() {
     updateCoworkers()
   }
 
+  const changeColor = (color, name) => {
+    setTeams(teams.map(team => {
+      if (team.name === name) {
+        team.color = color
+      }
+      return team
+    }))
+  }
+
+
   return (
     <AppState.Provider value={{ deleteCoworker }}>
       <div className="App">
@@ -100,8 +103,8 @@ function Home() {
         {teams.map(team => <Team
           key={team.name}
           name={team.name}
-          colorBack={team.colorBack}
-          colorFront={team.colorFront}
+          color={team.color}
+          changeColor={changeColor}
           coworkers={coworkers.filter(coworker => coworker.team === team.name)}
         />)}
 
