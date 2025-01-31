@@ -11,43 +11,7 @@ export const AppState = React.createContext()
 
 function Home() {
 
-  const [teams, setTeams] = useState([
-    {
-      name: "Programação",
-      color: "#57C278",
-
-    },
-    {
-      name: "Front-end",
-      color: "#82CFFA",
-
-    },
-    {
-      name: "Data Science",
-      color: "#A6D157",
-
-    },
-    {
-      name: "DevOps",
-      color: "#E03B69",
-
-    },
-    {
-      name: "Ux e Design",
-      color: "#DB6EBF",
-
-    },
-    {
-      name: "Mobile",
-      color: "#FFBA05",
-
-    },
-    {
-      name: "Inovação e Gestão",
-      color: "#FF8A29",
-
-    }
-  ])
+  const [teams, setTeams] = useState([])
 
   const [coworkers, setCoworkers] = useState([])
 
@@ -66,11 +30,17 @@ function Home() {
 
   useEffect(() => {
     updateCoworkers()
+    updateTeams()
   }, [])
 
   async function updateCoworkers() {
     const serverData = await api.get('/coworkers')
     setCoworkers(serverData.data)
+  }
+
+  async function updateTeams() {
+    const serverData = await api.get('/teams')
+    setTeams(serverData.data)
   }
 
   async function deleteCoworker(e) {
