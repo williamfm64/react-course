@@ -36,6 +36,10 @@ const MainForm = (props) => {
         })
     }
 
+    const teamFormVisible = () => {
+        newTeamFlag ? setNewTeamFlag(false) : setNewTeamFlag(true)
+    }
+
     return (
         <section className='form-section'>
             <form className='form-box' onSubmit={sendForm}>
@@ -71,14 +75,14 @@ const MainForm = (props) => {
                     value={team}
                 />
 
-                <h4 className='new-team' onClick={() => newTeamFlag ? setNewTeamFlag(false) : setNewTeamFlag(true)}>Novo time...</h4>
+                <h4 className='new-team' onClick={teamFormVisible}>Novo time...</h4>
 
                 <ButtonSubmit>
                     Criar Card
                 </ButtonSubmit>
             </form>
             {newTeamFlag ?
-                <TeamForm sendTeamForm={sendTeamForm} /> : null
+                <TeamForm sendTeamForm={sendTeamForm} teamFormVisible={teamFormVisible} /> : null
             }
         </section>
     )

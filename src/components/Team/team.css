@@ -26,3 +26,10 @@
     top: 30px;
     right: 70px;
 }
+
+.close-button {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    cursor: pointer;
+}

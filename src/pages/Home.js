@@ -49,7 +49,6 @@ function Home() {
   }
 
   async function addTeam(e) {
-    console.log(e)
     await api.post('/teams', {
       name: e.teamName,
       color: e.teamColor
