@@ -3,6 +3,7 @@ import TextBox from '../TextBox'
 import Dropdown from '../Dropdown'
 import ButtonSubmit from '../ButtonSubmit'
 import { useState } from 'react'
+import TeamForm from '../TeamForm'
 
 const MainForm = (props) => {
 
@@ -10,6 +11,7 @@ const MainForm = (props) => {
     const [position, setPosition] = useState('')
     const [image, setImage] = useState('')
     const [team, setTeam] = useState('')
+    const [newTeamFlag, setNewTeamFlag] = useState(false)
 
     const sendForm = (e) => {
         e.preventDefault()
@@ -24,6 +26,14 @@ const MainForm = (props) => {
         setPosition('')
         setImage('')
         setTeam('')
+    }
+
+    const sendTeamForm = (teamName, teamColor) => {
+        setNewTeamFlag(false)
+        props.onTeamSubmit({
+            teamName,
+            teamColor
+        })
     }
 
     return (
@@ -61,10 +71,15 @@ const MainForm = (props) => {
                     value={team}
                 />
 
+                <h4 className='new-team' onClick={() => newTeamFlag ? setNewTeamFlag(false) : setNewTeamFlag(true)}>Novo time...</h4>
+
                 <ButtonSubmit>
                     Criar Card
                 </ButtonSubmit>
             </form>
+            {newTeamFlag ?
+                <TeamForm sendTeamForm={sendTeamForm} /> : null
+            }
         </section>
     )
 }

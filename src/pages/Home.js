@@ -48,6 +48,15 @@ function Home() {
     updateCoworkers()
   }
 
+  async function addTeam(e) {
+    console.log(e)
+    await api.post('/teams', {
+      name: e.teamName,
+      color: e.teamColor
+    })
+    updateTeams()
+  }
+
   const changeColor = (color, name) => {
     setTeams(teams.map(team => {
       if (team.name === name) {
@@ -65,6 +74,7 @@ function Home() {
 
         <MainForm
           onCoworkerSubmit={thisCoworker => addCoworker(thisCoworker)}
+          onTeamSubmit={thisTeam => addTeam(thisTeam)}
           teamsList={teams}
           editFlag={editFlag}
           coworkerToEdit={coworkerToEdit}
