@@ -25,6 +25,14 @@
     position: absolute;
     top: 30px;
     right: 70px;
+    cursor: pointer;
+}
+
+.team .delete-button {
+    position: absolute;
+    top: 31px;
+    right: 30px;
+    cursor: pointer;
 }
 
 .close-button {

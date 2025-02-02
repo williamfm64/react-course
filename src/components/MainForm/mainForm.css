@@ -1,16 +1,17 @@
 .form-section {
     display: flex;
     justify-content: center;
-    gap: 20px;
     flex-wrap: wrap;
 }
 
 .form-box {
     background-color: #F2F2F2;
+    max-width: 800px;
     padding: 10px 40px;
-    margin: 80px 0px;
+    margin: 80px 30px;
     border-radius: 20px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.08);
+    flex: 1;
     position: relative;
 }
 

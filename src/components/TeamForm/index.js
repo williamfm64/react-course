@@ -1,5 +1,5 @@
 import { useState } from "react"
-import TextBox from "../TextBox"
+import InputBox from "../InputBox"
 import ButtonSubmit from "../ButtonSubmit"
 import { SlClose } from "react-icons/sl";
 
@@ -20,7 +20,7 @@ function TeamForm({ sendTeamForm, teamFormVisible }) {
             <form className='form-box' onSubmit={formSubmit}>
                 <h2>Preencha os dados para criar um novo time.</h2>
                 <SlClose size={25} className="close-button" onClick={teamFormVisible} />
-                <TextBox
+                <InputBox
                     label="Nome"
                     placeholder="Digite o nome do time"
                     required
@@ -28,12 +28,13 @@ function TeamForm({ sendTeamForm, teamFormVisible }) {
                     value={name}
                 />
 
-                <TextBox
+                <InputBox
                     label="Cor"
                     placeholder="Digite o valor da cor"
                     required
                     valueOnChange={p => setColor(p)}
                     value={color}
+                    type="color"
                 />
 
                 <ButtonSubmit>

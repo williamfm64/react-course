@@ -2,7 +2,7 @@ import './coworker.css'
 import { useState } from 'react'
 import Tool from '../Tool'
 
-function Coworker({ id, name, position, image, color }) {
+function Coworker({ id, name, position, image, color, def }) {
 
     const [visible, setVisible] = useState(false)
 
@@ -17,7 +17,7 @@ function Coworker({ id, name, position, image, color }) {
             </div>
             <div className="footer">
                 <h4 onClick={coworkerTools}>{name}</h4>
-                <Tool visible={visible} id={id} />
+                <Tool visible={visible} id={id} def={def} />
                 <h5>{position}</h5>
             </div>
         </div>

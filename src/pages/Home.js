@@ -18,12 +18,12 @@ function Home() {
   let editFlag = false;
   let coworkerToEdit = [];
 
-  async function addCoworker(e) {
+  async function addCoworker(thisCoworker) {
     await api.post('/coworkers', {
-      name: e.name,
-      position: e.position,
-      image: e.image,
-      team: e.team
+      name: thisCoworker.name,
+      position: thisCoworker.position,
+      image: thisCoworker.image,
+      teamKey: thisCoworker.team
     })
     updateCoworkers()
   }
@@ -65,6 +65,21 @@ function Home() {
     }))
   }
 
+  async function updateColor(id) {
+    const thisTeam = teams.find(team => team.id === id)
+    if (thisTeam.isDefault === false) {
+      await api.patch(`/teams/${id}`,
+        {
+          color: thisTeam.color
+        })
+      updateTeams()
+    }
+  }
+
+  async function deleteTeam(id) {
+    await api.delete(`/teams/${id}`)
+    updateTeams()
+  }
 
   return (
     <AppState.Provider value={{ deleteCoworker }}>
@@ -80,11 +95,15 @@ function Home() {
         />
 
         {teams.map(team => <Team
-          key={team.name}
+          key={team.id}
+          id={team.id}
           name={team.name}
           color={team.color}
           changeColor={changeColor}
-          coworkers={coworkers.filter(coworker => coworker.team === team.name)}
+          coworkers={coworkers.filter(coworker => coworker.teamKey === team.id)}
+          updateColor={updateColor}
+          deleteTeam={deleteTeam}
+          def={team.isDefault}
         />)}
 
         <Footer />
