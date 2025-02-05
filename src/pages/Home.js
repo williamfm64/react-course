@@ -81,8 +81,18 @@ function Home() {
     updateTeams()
   }
 
+  async function favoriteUpdate(id) {
+    const thisCoworker = coworkers.find(coworker => coworker.id === id)
+    await api.patch(`/coworkers/${id}`,
+      {
+        isFavorite: !thisCoworker.isFavorite
+      }
+    )
+    updateCoworkers()
+  }
+
   return (
-    <AppState.Provider value={{ deleteCoworker }}>
+    <AppState.Provider value={{ deleteCoworker, favoriteUpdate }}>
       <div className="App">
         <Banner />
 

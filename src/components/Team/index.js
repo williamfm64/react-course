@@ -38,6 +38,7 @@ const Team = (props) => {
                         image={coworker.image}
                         color={props.color}
                         def={coworker.isDefault}
+                        isFavorite={coworker.isFavorite}
                     />)}
                 </div>
             </section> : null
