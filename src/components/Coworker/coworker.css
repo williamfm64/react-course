@@ -1,5 +1,6 @@
 .coworker {
     width: 280px;
+    position: relative;
 }
 
 .coworker .header {
@@ -10,10 +11,13 @@
 
 .coworker img {
     width: 140px;
+    height: 140px;
     border-radius: 50%;
+    object-fit: cover;
     position: relative;
     z-index: 1;
     bottom: -40px;
+    margin-bottom: 5px;
 }
 
 .coworker .footer {
@@ -22,12 +26,11 @@
     border-radius: 0px 0px 10px 10px;
     padding-top: 72px;
     padding-bottom: 8px;
-    position: relative;
 }
 
 .coworker .footer h4 {
     line-height: 22px;
-    margin-top: 32px;
+    margin-top: 40px;
     color: #6278F7;
     font-size: 18px;
     font-weight: bold;
@@ -44,4 +47,11 @@
     line-height: 22px;
     color: #212121;
     margin: 12px 0;
+}
+
+.coworker .favorite {
+    position: absolute;
+    bottom: 130px;
+    right: 125px;
+    cursor: pointer;
 }

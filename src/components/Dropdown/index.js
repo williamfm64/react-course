@@ -9,10 +9,10 @@ function Dropdown(props) {
         <div className='dropdown-box'>
 
             <label>{props.label}</label>
-            <select required={props.required} value={props.value} onChange={valueSetter}>
+            <select required={props.required} onChange={valueSetter}>
                 <option value="" />
-                {props.items.map(item => {
-                    return <option key={item}>{item}</option>
+                {props.items.map(team => {
+                    return <option key={team.id} value={team.id}>{team.name}</option>
                 })}
             </select>
         </div>
